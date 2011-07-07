@@ -49,6 +49,10 @@ Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
 
+Next version
+
+- Fixed bug that can not compile.
+
 1.1  2011-07-07
 
 - Directory support.

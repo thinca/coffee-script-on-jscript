@@ -154,7 +154,7 @@ function main() {
     if (o.eval) {
       processCode(arg);
     } else {
-      search(arg);
+      search(FSO.GetFile(arg));
     }
   }
 }

@@ -113,11 +113,11 @@ function main() {
   var CoffeeScript = loadCoffee();
 
   function processCode(src, file) {
+    var compileOptions = {
+      filename: file,
+      bare: o.bare
+    };
     if (o.compile) {
-      var compileOptions = {
-        filename: file,
-        bare: o.bare
-      };
       var compiled = CoffeeScript.compile(src, compileOptions);
       if (o.print) {
         WScript.Echo(compiled);
@@ -126,7 +126,7 @@ function main() {
         FSO.OpenTextFile(js, 2, true).Write(compiled);
       }
     } else {
-      CoffeeScript.run(src, o);
+      CoffeeScript.run(src, compileOptions);
     }
   }
 

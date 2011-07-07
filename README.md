@@ -36,7 +36,6 @@ https://github.com/thinca/coffee-script-on-jscript
 ## TODO
 
 - Error handling.
-- Directory support.
 - --output option.
 - --join option.
 - --watch option.
@@ -48,9 +47,13 @@ https://github.com/thinca/coffee-script-on-jscript
 
 ## Version
 
-1.0
+1.1
 
 ## ChangeLog
+
+1.1  2011-07-07
+
+- Directory support.
 
 1.0  2011-07-07
 

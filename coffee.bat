@@ -100,6 +100,14 @@ function usage() {
   WScript.Quit(0);
 }
 
+this.console = {
+  log: function() {
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) { args.push(arguments[i]); } 
+	WScript.Echo(args.join(' '));
+  }
+}
+
 function main() {
   var args = parseArguments();
   var o = args.options;

@@ -32,7 +32,6 @@ See http://jashkenas.github.com/coffee-script/ .
 ## TODO
 
 - Error handling.
-- --output option.
 - --join option.
 - --watch option.
 
@@ -51,6 +50,7 @@ Repository: https://github.com/thinca/coffee-script-on-jscript
 
 Next version
 
+- Added --output option.
 - Fixed bug that can not compile.
 
 1.1  2011-07-07

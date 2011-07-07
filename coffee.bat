@@ -22,6 +22,7 @@ function parseArguments() {
       compile: false,
       eval: false,
       help: args.length == 0,
+      output: null,
       print: false,
       stdio: false
     }
@@ -44,6 +45,10 @@ function parseArguments() {
       case "-h":
       case "--help":
         o.help = true;
+      break;
+      case "-o":
+      case "--output":
+        o.output = args.shift();
       break;
       case "-p":
       case "--print":
@@ -88,11 +93,21 @@ function getArgs() {
   return args;
 }
 
+function createFolders(folder) {
+  folder = FSO.GetAbsolutePathName(folder);
+  if (!FSO.FolderExists(folder)) {
+    var parent = FSO.GetParentFolderName(folder);
+    createFolders(parent);
+    FSO.CreateFolder(folder);
+  }
+}
+
 function usage() {
   WScript.Echo('');
   WScript.Echo("Usage: coffee [options] path/to/script.coffee");
   WScript.Echo('');
   WScript.Echo("  -c, --compile      compile to JavaScript and save as .js files");
+  WScript.Echo("  -o, --output       set the directory for compiled JavaScript");
   WScript.Echo("  -p, --print        print the compiled JavaScript to stdout");
   WScript.Echo("  -s, --stdio        listen for and compile scripts over stdio");
   WScript.Echo("  -e, --eval         compile a string from the command line");
@@ -112,7 +127,7 @@ function main() {
 
   var CoffeeScript = loadCoffee();
 
-  function processCode(src, file) {
+  function processCode(src, file, base) {
     var compileOptions = {
       filename: file,
       bare: o.bare
@@ -123,6 +138,13 @@ function main() {
         WScript.Echo(compiled);
       } else if (file) {
         var js = file.replace(/(\.\w+)?$/, ".js");
+        if (o.output) {
+          var tail = base
+            ? FSO.GetAbsolutePathName(js).substr(base.length)
+            : FSO.GetFileName(js);
+          js = FSO.BuildPath(o.output, tail);
+        }
+        createFolders(FSO.GetParentFolderName(js));
         FSO.OpenTextFile(js, 2, true).Write(compiled);
       }
     } else {
@@ -130,20 +152,23 @@ function main() {
     }
   }
 
-  function search(path) {
+  function search(path, base) {
     if (FSO.FolderExists(path)) {
       var folder = FSO.GetFolder(path);
+      if (!base) {
+        base = FSO.GetAbsolutePathName(folder.Path);
+      }
       for (var e = new Enumerator(folder.Files); !e.atEnd(); e.moveNext()) {
         var file = e.item();
         if (FSO.GetExtensionName(file) === "coffee") {
-          search(file.Path);
+          search(file.Path, base);
         }
       }
       for (var e = new Enumerator(folder.SubFolders); !e.atEnd(); e.moveNext()) {
-        search(e.item());
+        search(e.item(), base);
       }
     } else if (FSO.FileExists(path)) {
-      processCode(FSO.OpenTextFile(path, 1).ReadAll(), path);
+      processCode(FSO.OpenTextFile(path, 1).ReadAll(), path, base);
     } else {
       throw "File not found: " + path;
     }

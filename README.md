@@ -29,10 +29,6 @@ See http://jashkenas.github.com/coffee-script/ .
 
 - This script works on JScript. So, some functions and objects that can be used by node.js cannot be used.
 
-## Latest version
-
-https://github.com/thinca/coffee-script-on-jscript
-
 ## TODO
 
 - Error handling.
@@ -45,9 +41,11 @@ https://github.com/thinca/coffee-script-on-jscript
     Creative Commons Attribution 3.0 Unported (CC BY 3.0)
     http://creativecommons.org/licenses/by/3.0/deed
 
-## Version
+## Information
 
-1.1
+Version:    1.1
+
+Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
 

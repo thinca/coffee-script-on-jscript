@@ -136,14 +136,14 @@ function main() {
       for (var e = new Enumerator(folder.Files); !e.atEnd(); e.moveNext()) {
         var file = e.item();
         if (FSO.GetExtensionName(file) === "coffee") {
-          search(file);
+          search(file.Path);
         }
       }
       for (var e = new Enumerator(folder.SubFolders); !e.atEnd(); e.moveNext()) {
         search(e.item());
       }
     } else if (FSO.FileExists(path)) {
-      processCode(FSO.OpenTextFile(path, 1).ReadAll(), path.Path);
+      processCode(FSO.OpenTextFile(path, 1).ReadAll(), path);
     } else {
       throw "File not found: " + path;
     }
@@ -154,7 +154,7 @@ function main() {
     if (o.eval) {
       processCode(arg);
     } else {
-      search(FSO.GetFile(arg));
+      search(arg);
     }
   }
 }

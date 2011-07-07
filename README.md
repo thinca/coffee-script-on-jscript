@@ -14,6 +14,7 @@ See http://jashkenas.github.com/coffee-script/ .
     Usage: coffee [options] path/to/script.coffee
 
       -c, --compile      compile to JavaScript and save as .js files
+      -o, --output       set the directory for compiled JavaScript
       -p, --print        print the compiled JavaScript to stdout
       -s, --stdio        listen for and compile scripts over stdio
       -e, --eval         compile a string from the command line

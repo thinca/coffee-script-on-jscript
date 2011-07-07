@@ -3,6 +3,8 @@
 @goto :eof
 */
 
+(function () {
+
 var FSO = WScript.CreateObject("Scripting.FileSystemObject");
 
 function loadCoffee() {
@@ -158,3 +160,5 @@ function main() {
 }
 
 main();
+
+}).call(this);

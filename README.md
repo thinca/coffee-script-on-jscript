@@ -34,7 +34,6 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## TODO
 
-- Error handling.
 - --join option.
 - --watch option.
 

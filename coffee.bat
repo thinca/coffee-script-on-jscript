@@ -224,6 +224,11 @@ function main() {
   }
 }
 
-main();
+try {
+  main();
+} catch (e) {
+  WScript.StdErr.WriteLine("Error: " + e.message);
+  WScript.Quit(1);
+}
 
 }).call(this);

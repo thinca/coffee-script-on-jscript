@@ -210,7 +210,7 @@ function main() {
     } else if (FSO.FileExists(path)) {
       processCode(FSO.OpenTextFile(path, 1).ReadAll(), path, base);
     } else {
-      throw "File not found: " + path;
+      throw new Error("File not found: " + path);
     }
   }
 

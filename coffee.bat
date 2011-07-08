@@ -24,7 +24,8 @@ function parseArguments() {
       help: args.length == 0,
       output: null,
       print: false,
-      stdio: false
+      stdio: false,
+      tokens: false
     }
   };
   var o = res.options;
@@ -57,6 +58,10 @@ function parseArguments() {
       case "-s":
       case "--stdio":
         o.stdio = true;
+      break;
+      case "-t":
+      case "--tokens":
+        o.tokens = true;
       break;
     }
   }
@@ -93,6 +98,17 @@ function getArgs() {
   return args;
 }
 
+function tokensToString(tokens) {
+  var strings = [];
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i];
+    var tag = token[0];
+    var value = token[1].toString().replace(/\n/, "\\n");
+    strings.push("[" + token[0] + " " + value + "]");
+  }
+  return strings.join(' ');
+};
+
 function createFolders(folder) {
   folder = FSO.GetAbsolutePathName(folder);
   if (!FSO.FolderExists(folder)) {
@@ -112,6 +128,7 @@ function usage() {
   WScript.Echo("  -s, --stdio        listen for and compile scripts over stdio");
   WScript.Echo("  -e, --eval         compile a string from the command line");
   WScript.Echo("  -b, --bare         compile without the top-level function wrapper");
+  WScript.Echo("  -t, --tokens       print the tokens that the lexer produces");
   WScript.Echo("  -h, --help         display this help message");
 
   WScript.Quit(0);
@@ -132,7 +149,9 @@ function main() {
       filename: file,
       bare: o.bare
     };
-    if (o.compile) {
+    if (o.tokens) {
+      WScript.Echo(tokensToString(CoffeeScript.tokens(src)));
+    } else if (o.compile) {
       var compiled = CoffeeScript.compile(src, compileOptions);
       if (o.print) {
         WScript.Echo(compiled);

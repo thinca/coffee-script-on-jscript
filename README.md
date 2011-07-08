@@ -19,6 +19,7 @@ See http://jashkenas.github.com/coffee-script/ .
       -s, --stdio        listen for and compile scripts over stdio
       -e, --eval         compile a string from the command line
       -b, --bare         compile without the top-level function wrapper
+      -t, --tokens       print the tokens that the lexer produces
       -h, --help         display this help message
 
 ## Note
@@ -48,6 +49,10 @@ Version:    1.2
 Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
+
+Next version
+
+- Added --tokens option.
 
 1.2  2011-07-07
 

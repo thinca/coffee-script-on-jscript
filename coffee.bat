@@ -73,6 +73,8 @@ function parseArguments() {
       case "--version":
         o.version = true;
       break;
+      default:
+        throw new Error("unrecognized option: " + opt);
     }
   }
   while (args.length != 0) {

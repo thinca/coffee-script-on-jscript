@@ -94,6 +94,9 @@ function parseArguments() {
   if (res.args.length == 0 && !o.eval && !o.version) {
     o.help = true;
   }
+  if (o.print) {
+    o.compile = true;
+  }
   if (o.eval || o.stdio) {
     o.print = true;
   }

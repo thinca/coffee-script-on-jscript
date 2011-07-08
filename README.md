@@ -44,15 +44,16 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## Information
 
-Version:    1.3
+Version:    1.4
 
 Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
 
-Next version
+1.4  2011-07-08
 
 - Improved the handling of error.
+- Fixed some behaviors.
 
 1.3  2011-07-08
 

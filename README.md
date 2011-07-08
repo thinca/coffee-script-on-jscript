@@ -45,13 +45,13 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## Information
 
-Version:    1.2
+Version:    1.3
 
 Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
 
-Next version
+1.3  2011-07-08
 
 - Added --tokens option.
 - Added --version option.

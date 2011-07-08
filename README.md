@@ -20,6 +20,7 @@ See http://jashkenas.github.com/coffee-script/ .
       -e, --eval         compile a string from the command line
       -b, --bare         compile without the top-level function wrapper
       -t, --tokens       print the tokens that the lexer produces
+      -v, --version      display CoffeeScript version
       -h, --help         display this help message
 
 ## Note
@@ -53,6 +54,7 @@ Repository: https://github.com/thinca/coffee-script-on-jscript
 Next version
 
 - Added --tokens option.
+- Added --version option.
 
 1.2  2011-07-07
 

@@ -26,7 +26,8 @@ function parseArguments() {
       output: null,
       print: false,
       stdio: false,
-      tokens: false
+      tokens: false,
+      version: false
     }
   };
   var o = res.options;
@@ -68,6 +69,10 @@ function parseArguments() {
       case "--tokens":
         o.tokens = true;
       break;
+      case "-v":
+      case "--version":
+        o.version = true;
+      break;
     }
   }
   while (args.length != 0) {
@@ -86,7 +91,7 @@ function parseArguments() {
     res.args = [WScript.StdIn.ReadAll()];
     o.eval = true;
   }
-  if (res.args.length == 0 && !o.eval) {
+  if (res.args.length == 0 && !o.eval && !o.version) {
     o.help = true;
   }
   if (o.eval || o.stdio) {
@@ -134,6 +139,7 @@ function usage() {
   WScript.Echo("  -e, --eval         compile a string from the command line");
   WScript.Echo("  -b, --bare         compile without the top-level function wrapper");
   WScript.Echo("  -t, --tokens       print the tokens that the lexer produces");
+  WScript.Echo("  -v, --version      display CoffeeScript version");
   WScript.Echo("  -h, --help         display this help message");
 
   WScript.Quit(0);
@@ -148,6 +154,11 @@ function main() {
   }
 
   var CoffeeScript = loadCoffee();
+
+  if (o.version) {
+    WScript.Echo("CoffeeScript version " + CoffeeScript.VERSION);
+    return;
+  }
 
   function processCode(src, file, base) {
     var compileOptions = {

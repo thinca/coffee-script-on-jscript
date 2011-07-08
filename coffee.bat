@@ -22,6 +22,7 @@ function parseArguments() {
       compile: false,
       eval: false,
       help: args.length == 0,
+      nodes: false,
       output: null,
       print: false,
       stdio: false,
@@ -46,6 +47,10 @@ function parseArguments() {
       case "-h":
       case "--help":
         o.help = true;
+      break;
+      case "-n":
+      case "--nodes":
+        o.nodes = true;
       break;
       case "-o":
       case "--output":
@@ -151,6 +156,8 @@ function main() {
     };
     if (o.tokens) {
       WScript.Echo(tokensToString(CoffeeScript.tokens(src)));
+    } else if (o.nodes) {
+      WScript.Echo(CoffeeScript.nodes(src).toString().replace(/^\s+|\s+$/g, ""));
     } else if (o.compile) {
       var compiled = CoffeeScript.compile(src, compileOptions);
       if (o.print) {

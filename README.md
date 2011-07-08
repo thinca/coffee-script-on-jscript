@@ -50,6 +50,10 @@ Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
 
+Next version
+
+- Improved the handling of error.
+
 1.3  2011-07-08
 
 - Added --tokens option.

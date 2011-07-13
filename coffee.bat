@@ -25,6 +25,15 @@ function readFile(file) {
   }
 }
 
+function writeFile(file, content) {
+  var stream = FSO.OpenTextFile(file, 2, true);
+  try {
+    return stream.Write(content);
+  } finally {
+    stream.Close();
+  }
+}
+
 function parseArguments() {
   var args = getArgs();
   var res = {
@@ -209,7 +218,7 @@ function main() {
           js = FSO.BuildPath(o.output, tail);
         }
         createFolders(FSO.GetParentFolderName(js));
-        FSO.OpenTextFile(js, 2, true).Write(compiled);
+        writeFile(js, compiled);
       }
     } else {
       CoffeeScript.run(src, compileOptions);

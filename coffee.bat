@@ -77,7 +77,10 @@ function loadCoffee() {
 }
 
 function readFile(file) {
-  if (!FSO.FileExists(file) || FSO.getFile(file).Size == 0) {
+  if (!FSO.FileExists(file)) {
+    throw new Error("File not found: " + file);
+  }
+  if (FSO.getFile(file).Size == 0) {
     return "";
   }
   var stream = FSO.OpenTextFile(file, 1);

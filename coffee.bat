@@ -204,8 +204,10 @@ function main() {
     }
   }
 
-  function process(file, base) {
-    processCode(FSO.OpenTextFile(file, 1).ReadAll(), file, base);
+  function process(path, base) {
+    if (FSO.FileExists(path)) {
+      processCode(FSO.OpenTextFile(path, 1).ReadAll(), path, base);
+    }
   }
 
   function traverse(path, func, base) {
@@ -223,6 +225,7 @@ function main() {
       for (var e = new Enumerator(folder.SubFolders); !e.atEnd(); e.moveNext()) {
         traverse(e.item(), func, base);
       }
+      func(path, base);
     } else if (FSO.FileExists(path)) {
       func(path, base);
     } else {

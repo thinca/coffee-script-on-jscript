@@ -225,12 +225,10 @@ function main() {
       for (var e = new Enumerator(folder.SubFolders); !e.atEnd(); e.moveNext()) {
         traverse(e.item(), func, base);
       }
-      func(path, base);
-    } else if (FSO.FileExists(path)) {
-      func(path, base);
-    } else {
+    } else if (!FSO.FileExists(path)) {
       throw new Error("File not found: " + path);
     }
+    func(path, base);
   }
 
   for (var i = 0; i < args.args.length; i++) {

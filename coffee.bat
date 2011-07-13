@@ -219,11 +219,11 @@ function main() {
       for (var e = new Enumerator(folder.Files); !e.atEnd(); e.moveNext()) {
         var file = e.item();
         if (FSO.GetExtensionName(file) === "coffee") {
-          traverse(file.Path, func, base);
+          traverse(FSO.BuildPath(path, file.Name), func, base);
         }
       }
       for (var e = new Enumerator(folder.SubFolders); !e.atEnd(); e.moveNext()) {
-        traverse(e.item(), func, base);
+        traverse(FSO.BuildPath(path, e.item().Name), func, base);
       }
     } else if (!FSO.FileExists(path)) {
       throw new Error("File not found: " + path);

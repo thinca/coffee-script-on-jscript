@@ -34,6 +34,10 @@ See http://jashkenas.github.com/coffee-script/ .
 
 - This script works on JScript. So, some functions and objects that can be used by node.js cannot be used.
 
+- Some problems are known in the direct running(without --compile).
+  - Can not know the point that the error occurred.
+  - Can not treat the arguments of command line.
+
 ## License
 
     Creative Commons Attribution 3.0 Unported (CC BY 3.0)

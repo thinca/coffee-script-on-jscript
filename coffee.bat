@@ -71,8 +71,7 @@ function childPaths(path) {
 }
 
 function loadCoffee() {
-  eval(FSO.OpenTextFile(
-    FSO.BuildPath(FSO.GetFile(WScript.ScriptFullName).parentFolder, "coffee-script.js"), 1).ReadAll());
+  eval(readFile(FSO.BuildPath(FSO.GetParentFolderName(WScript.ScriptFullName), "coffee-script.js")));
   return CoffeeScript;
 }
 

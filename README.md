@@ -53,6 +53,7 @@ Repository: https://github.com/thinca/coffee-script-on-jscript
 Next version
 
 - Added --join option.
+- Fixed the error with an empty file.
 
 1.4  2011-07-08
 

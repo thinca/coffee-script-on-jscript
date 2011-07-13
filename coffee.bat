@@ -13,6 +13,18 @@ function loadCoffee() {
   return CoffeeScript;
 }
 
+function readFile(file) {
+  if (!FSO.FileExists(file) || FSO.getFile(file).Size == 0) {
+    return "";
+  }
+  var stream = FSO.OpenTextFile(file, 1);
+  try {
+    return stream.ReadAll();
+  } finally {
+    stream.Close();
+  }
+}
+
 function parseArguments() {
   var args = getArgs();
   var res = {
@@ -206,7 +218,7 @@ function main() {
 
   function process(path, base) {
     if (FSO.FileExists(path)) {
-      processCode(FSO.OpenTextFile(path, 1).ReadAll(), path, base);
+      processCode(readFile(path), path, base);
     }
   }
 

@@ -16,6 +16,7 @@ See http://jashkenas.github.com/coffee-script/ .
       -c, --compile      compile to JavaScript and save as .js files
       -o, --output       set the directory for compiled JavaScript
       -j, --join         concatenate the scripts before compiling
+      -w, --watch        watch scripts for changes, and recompile
       -p, --print        print the compiled JavaScript to stdout
       -s, --stdio        listen for and compile scripts over stdio
       -e, --eval         compile a string from the command line
@@ -33,10 +34,6 @@ See http://jashkenas.github.com/coffee-script/ .
 
 - This script works on JScript. So, some functions and objects that can be used by node.js cannot be used.
 
-## TODO
-
-- --watch option.
-
 ## License
 
     Creative Commons Attribution 3.0 Unported (CC BY 3.0)
@@ -53,6 +50,7 @@ Repository: https://github.com/thinca/coffee-script-on-jscript
 Next version
 
 - Added --join option.
+- Added --watch option.
 - Fixed the error with an empty file.
 
 1.4  2011-07-08

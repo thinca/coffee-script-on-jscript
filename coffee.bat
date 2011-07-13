@@ -301,6 +301,10 @@ function main() {
     }
   }
 
+  function isCoffee(file) {
+    return FSO.GetExtensionName(file) === "coffee";
+  }
+
   function traverse(path, func, base) {
     if (FSO.FolderExists(path)) {
       var folder = FSO.GetFolder(path);
@@ -309,7 +313,7 @@ function main() {
       }
       for (var e = new Enumerator(folder.Files); !e.atEnd(); e.moveNext()) {
         var file = e.item();
-        if (FSO.GetExtensionName(file) === "coffee") {
+        if (isCoffee(file)) {
           traverse(FSO.BuildPath(path, file.Name), func, base);
         }
       }
@@ -345,7 +349,10 @@ function main() {
         var full = FSO.GetAbsolutePathName(path);
         if (FSO.FolderExists(path)) {
           for (var i = 0; i < renewed.length; i++) {
-            addWatcher(FSO.BuildPath(path, FSO.GetFileName(renewed[i])), bases[full]);
+            var newpath = FSO.BuildPath(path, FSO.GetFileName(renewed[i]));
+            if (FSO.FolderExists(newpath) || isCoffee(newpath)) {
+              addWatcher(newpath, bases[full]);
+            }
           }
         } else {
           modified[full]();

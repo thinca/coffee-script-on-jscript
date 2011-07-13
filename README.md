@@ -45,11 +45,15 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## Information
 
-Version:    1.5
+Version:    1.5.1
 
 Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
+
+1.5.1  2011-07-13
+
+- Fixed the watching of directory.
 
 1.5  2011-07-13
 

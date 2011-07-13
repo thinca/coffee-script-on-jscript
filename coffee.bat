@@ -22,6 +22,7 @@ function parseArguments() {
       compile: false,
       eval: false,
       help: args.length == 0,
+      join: null,
       nodes: false,
       output: null,
       print: false,
@@ -48,6 +49,10 @@ function parseArguments() {
       case "-h":
       case "--help":
         o.help = true;
+      break;
+      case "-j":
+      case "--join":
+        o.join = args.shift();
       break;
       case "-n":
       case "--nodes":
@@ -139,6 +144,7 @@ function usage() {
   WScript.Echo('');
   WScript.Echo("  -c, --compile      compile to JavaScript and save as .js files");
   WScript.Echo("  -o, --output       set the directory for compiled JavaScript");
+  WScript.Echo("  -j, --join         concatenate the scripts before compiling");
   WScript.Echo("  -p, --print        print the compiled JavaScript to stdout");
   WScript.Echo("  -s, --stdio        listen for and compile scripts over stdio");
   WScript.Echo("  -e, --eval         compile a string from the command line");
@@ -165,12 +171,16 @@ function main() {
     return;
   }
 
+  var contents = [];
+
   function processCode(src, file, base) {
     var compileOptions = {
       filename: file,
       bare: o.bare
     };
-    if (o.tokens) {
+    if (o.join) {
+      contents.push(src);
+    } else if (o.tokens) {
       WScript.Echo(tokensToString(CoffeeScript.tokens(src)));
     } else if (o.nodes) {
       WScript.Echo(CoffeeScript.nodes(src).toString().replace(/^\s+|\s+$/g, ""));
@@ -223,6 +233,12 @@ function main() {
     } else {
       search(arg);
     }
+  }
+
+  if (o.join && contents.length != 0) {
+    var file = o.join;
+    o.join = false;
+    processCode(contents.join("\n"), file);
   }
 }
 

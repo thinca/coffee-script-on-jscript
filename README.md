@@ -15,6 +15,7 @@ See http://jashkenas.github.com/coffee-script/ .
 
       -c, --compile      compile to JavaScript and save as .js files
       -o, --output       set the directory for compiled JavaScript
+      -j, --join         concatenate the scripts before compiling
       -p, --print        print the compiled JavaScript to stdout
       -s, --stdio        listen for and compile scripts over stdio
       -e, --eval         compile a string from the command line
@@ -34,7 +35,6 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## TODO
 
-- --join option.
 - --watch option.
 
 ## License
@@ -49,6 +49,10 @@ Version:    1.4
 Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
+
+Next version
+
+- Added --join option.
 
 1.4  2011-07-08
 

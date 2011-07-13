@@ -45,13 +45,13 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## Information
 
-Version:    1.4
+Version:    1.5
 
 Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
 
-Next version
+1.5  2011-07-13
 
 - Added --join option.
 - Added --watch option.

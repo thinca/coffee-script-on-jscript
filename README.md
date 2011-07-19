@@ -30,7 +30,7 @@ See http://jashkenas.github.com/coffee-script/ .
 - The file "coffee-script.js" included in this repository is a part of CoffeeScript.
   You can get the latest version of this from the following.
 
-  https://github.com/jashkenas/coffee-script/blob/master/extras/coffee-script.js
+  http://jashkenas.github.com/coffee-script/extras/coffee-script.js
 
 - This script works on JScript. So, some functions and objects that can be used by node.js cannot be used.
 

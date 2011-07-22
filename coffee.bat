@@ -72,7 +72,7 @@ function childPaths(path) {
 
 function loadCoffee() {
   eval(readFile(FSO.BuildPath(FSO.GetParentFolderName(WScript.ScriptFullName), "coffee-script.js")));
-  return CoffeeScript;
+  return this.CoffeeScript;
 }
 
 function readFile(file) {
@@ -256,7 +256,7 @@ function main() {
     usage();
   }
 
-  var CoffeeScript = loadCoffee();
+  var CoffeeScript = loadCoffee.call({});
 
   if (o.version) {
     WScript.Echo("CoffeeScript version " + CoffeeScript.VERSION);

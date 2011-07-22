@@ -38,16 +38,15 @@ See http://jashkenas.github.com/coffee-script/ .
   - Can not know the point that the error occurred.
   - Can not treat the arguments of command line.
 
-## License
-
-    Creative Commons Attribution 3.0 Unported (CC BY 3.0)
-    http://creativecommons.org/licenses/by/3.0/deed
-
 ## Information
 
-Version:    1.5.1
+    Version:    1.5.1
+    Author:     thinca <thinca@gmail.com>
+    Repository: https://github.com/thinca/coffee-script-on-jscript
+    License:
+        Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+        http://creativecommons.org/licenses/by/3.0/
 
-Repository: https://github.com/thinca/coffee-script-on-jscript
 
 ## ChangeLog
 

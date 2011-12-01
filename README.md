@@ -55,6 +55,11 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## ChangeLog
 
+Next version
+
+- Improved for multibyte character.
+- Updated coffee-script.js to 1.1.3.
+
 1.5.1  2011-07-13
 
 - Fixed the watching of directory.

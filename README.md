@@ -45,7 +45,7 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## Information
 
-    Version:    1.5.1
+    Version:    1.5.2
     Author:     thinca <thinca@gmail.com>
     Repository: https://github.com/thinca/coffee-script-on-jscript
     License:
@@ -55,7 +55,7 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## ChangeLog
 
-Next version
+1.5.2  2011-12-01
 
 - Improved for multibyte character.
 - Updated coffee-script.js to 1.1.3.

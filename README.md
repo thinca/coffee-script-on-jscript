@@ -15,6 +15,7 @@ See http://jashkenas.github.com/coffee-script/ .
 
       -b, --bare         compile without the top-level function wrapper
       -c, --compile      compile to JavaScript and save as .js files
+          --encoding     character encoding used by source files
       -e, --eval         compile a string from the command line
       -h, --help         display this help message
       -j, --join         concatenate the scripts before compiling

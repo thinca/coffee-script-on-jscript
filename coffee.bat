@@ -271,6 +271,7 @@ function usage() {
   WScript.Echo('');
   WScript.Echo("  -b, --bare         compile without the top-level function wrapper");
   WScript.Echo("  -c, --compile      compile to JavaScript and save as .js files");
+  WScript.Echo("      --encoding     character encoding used by source files");
   WScript.Echo("  -e, --eval         compile a string from the command line");
   WScript.Echo("  -h, --help         display this help message");
   WScript.Echo("  -j, --join         concatenate the scripts before compiling");

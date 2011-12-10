@@ -274,6 +274,7 @@ function usage() {
   WScript.Echo("  -e, --eval         compile a string from the command line");
   WScript.Echo("  -h, --help         display this help message");
   WScript.Echo("  -j, --join         concatenate the scripts before compiling");
+  WScript.Echo("  -n, --nodes        print out the parse tree that the parser produces");
   WScript.Echo("  -o, --output       set the directory for compiled JavaScript");
   WScript.Echo("  -p, --print        print the compiled JavaScript to stdout");
   WScript.Echo("  -s, --stdio        listen for and compile scripts over stdio");

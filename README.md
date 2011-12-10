@@ -18,6 +18,7 @@ See http://jashkenas.github.com/coffee-script/ .
       -e, --eval         compile a string from the command line
       -h, --help         display this help message
       -j, --join         concatenate the scripts before compiling
+      -n, --nodes        print out the parse tree that the parser produces
       -o, --output       set the directory for compiled JavaScript
       -p, --print        print the compiled JavaScript to stdout
       -s, --stdio        listen for and compile scripts over stdio

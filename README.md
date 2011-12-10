@@ -40,10 +40,11 @@ See http://jashkenas.github.com/coffee-script/ .
   - Can not know the point that the error occurred.
   - Can not treat the arguments of command line.
 
-- If multibyte character is contained in the output with `-p`, it may break.
-  - StdOut of JScript can not treat binary data.
+- StdIn and StdOut of JScript can not treat binary data.
+  - These are treat data as system default encoding.
+  - If the output breaks, please try --encoding option.
+  - Processing about file is performed with binary.
   - If how you treat binary data is known, please let me know.
-  - ...or, add an option to specify the output encoding?
 
 ## Information
 

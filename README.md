@@ -13,17 +13,17 @@ See http://jashkenas.github.com/coffee-script/ .
 
     Usage: coffee [options] path/to/script.coffee
 
+      -b, --bare         compile without the top-level function wrapper
       -c, --compile      compile to JavaScript and save as .js files
-      -o, --output       set the directory for compiled JavaScript
+      -e, --eval         compile a string from the command line
+      -h, --help         display this help message
       -j, --join         concatenate the scripts before compiling
-      -w, --watch        watch scripts for changes, and recompile
+      -o, --output       set the directory for compiled JavaScript
       -p, --print        print the compiled JavaScript to stdout
       -s, --stdio        listen for and compile scripts over stdio
-      -e, --eval         compile a string from the command line
-      -b, --bare         compile without the top-level function wrapper
       -t, --tokens       print the tokens that the lexer produces
       -v, --version      display CoffeeScript version
-      -h, --help         display this help message
+      -w, --watch        watch scripts for changes, and recompile
 
 ## Note
 

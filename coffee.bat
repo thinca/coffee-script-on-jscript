@@ -269,17 +269,17 @@ function usage() {
   WScript.Echo('');
   WScript.Echo("Usage: coffee [options] path/to/script.coffee");
   WScript.Echo('');
+  WScript.Echo("  -b, --bare         compile without the top-level function wrapper");
   WScript.Echo("  -c, --compile      compile to JavaScript and save as .js files");
-  WScript.Echo("  -o, --output       set the directory for compiled JavaScript");
+  WScript.Echo("  -e, --eval         compile a string from the command line");
+  WScript.Echo("  -h, --help         display this help message");
   WScript.Echo("  -j, --join         concatenate the scripts before compiling");
-  WScript.Echo("  -w, --watch        watch scripts for changes, and recompile");
+  WScript.Echo("  -o, --output       set the directory for compiled JavaScript");
   WScript.Echo("  -p, --print        print the compiled JavaScript to stdout");
   WScript.Echo("  -s, --stdio        listen for and compile scripts over stdio");
-  WScript.Echo("  -e, --eval         compile a string from the command line");
-  WScript.Echo("  -b, --bare         compile without the top-level function wrapper");
   WScript.Echo("  -t, --tokens       print the tokens that the lexer produces");
   WScript.Echo("  -v, --version      display CoffeeScript version");
-  WScript.Echo("  -h, --help         display this help message");
+  WScript.Echo("  -w, --watch        watch scripts for changes, and recompile");
 
   WScript.Quit(0);
 }

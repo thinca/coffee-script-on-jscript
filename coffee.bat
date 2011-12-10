@@ -142,6 +142,7 @@ function parseArguments() {
     options: {
       bare: false,
       compile: false,
+      encoding: null,
       eval: false,
       help: args.length == 0,
       join: null,
@@ -164,6 +165,9 @@ function parseArguments() {
       case "-c":
       case "--compile":
         o.compile = true;
+      break;
+      case "--encoding":
+        o.encoding = args.shift();
       break;
       case "-e":
       case "--eval":
@@ -303,6 +307,10 @@ function main() {
 
   var contents = [];
 
+  function print(str) {
+    WScript.StdOut.Write(binaryToString(str, o.encoding));
+  }
+
   function processCode(src, file, base) {
     var compileOptions = {
       filename: file,
@@ -311,13 +319,13 @@ function main() {
     if (o.join) {
       contents.push(src);
     } else if (o.tokens) {
-      WScript.Echo(tokensToString(CoffeeScript.tokens(src)));
+      print(tokensToString(CoffeeScript.tokens(src)));
     } else if (o.nodes) {
-      WScript.Echo(CoffeeScript.nodes(src).toString().replace(/^\s+|\s+$/g, ""));
+      print(CoffeeScript.nodes(src).toString().replace(/^\s+|\s+$/g, ""));
     } else if (o.compile) {
       var compiled = CoffeeScript.compile(src, compileOptions);
       if (o.print) {
-        WScript.StdOut.Write(binaryToString(compiled));
+        print(compiled);
       } else if (file) {
         var js = file.replace(/(\.\w+)?$/, ".js");
         if (o.output) {
@@ -331,7 +339,7 @@ function main() {
         writeFile(js, compiled);
       }
     } else {
-      CoffeeScript.run(src, compileOptions);
+      CoffeeScript.run(binaryToString(src, o.encoding), compileOptions);
     }
   }
 

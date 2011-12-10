@@ -48,7 +48,7 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## Information
 
-    Version:    1.5.2
+    Version:    1.5.3
     Author:     thinca <thinca@gmail.com>
     Repository: https://github.com/thinca/coffee-script-on-jscript
     License:
@@ -57,6 +57,10 @@ See http://jashkenas.github.com/coffee-script/ .
 
 
 ## ChangeLog
+
+1.5.3  2011-12-10
+
+- Added --encoding option.
 
 1.5.2  2011-12-01
 

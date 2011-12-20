@@ -58,6 +58,10 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## ChangeLog
 
+1.5.4  2011-12-20
+
+- Updated coffee-script.js to 1.2.0.
+
 1.5.3  2011-12-10
 
 - Added --encoding option.

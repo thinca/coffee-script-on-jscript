@@ -51,9 +51,7 @@ See http://jashkenas.github.com/coffee-script/ .
     Version:    1.5.3
     Author:     thinca <thinca@gmail.com>
     Repository: https://github.com/thinca/coffee-script-on-jscript
-    License:
-        Creative Commons Attribution 3.0 Unported (CC BY 3.0)
-        http://creativecommons.org/licenses/by/3.0/
+    License:    zlib License
 
 
 ## ChangeLog

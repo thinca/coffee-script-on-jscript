@@ -48,13 +48,17 @@ See http://jashkenas.github.com/coffee-script/ .
 
 ## Information
 
-    Version:    1.5.3
+    Version:    1.5.5
     Author:     thinca <thinca@gmail.com>
     Repository: https://github.com/thinca/coffee-script-on-jscript
     License:    zlib License
 
 
 ## ChangeLog
+
+1.5.5  2012-04-25
+
+- Updated coffee-script.js to 1.3.1.
 
 1.5.4  2011-12-20
 
